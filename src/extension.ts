@@ -16,7 +16,12 @@ export function activate(context: vscode.ExtensionContext) {
     // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand('extension.avaloniaPreview', () => {
         // The code you place here will be executed every time your command is executed
-
+        const panel = vscode.window.createWebviewPanel(
+            'avaloniaPreviewer', // Identifies the type of the webview. Used internally
+            "Preview", // Title of the panel displayed to the user
+            vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+            { } // Webview options. More on these later.
+        );
         // Display a message box to the user
         vscode.window.showInformationMessage('Hello Avalonia!');
     });
